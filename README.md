@@ -22,7 +22,7 @@ project-root/
 #### **After**
 ```
 project-root/
-├ img-backup/
+├ imgc-backup/
     ├ photo1.jpg
     ├ photo2.jpg
 ├ photo1.webp
@@ -33,4 +33,17 @@ project-root/
 - `-q` Quality of the conversion, provided as a percentage.
     - Example `imgc -q 90 *.png jpg` produces jpg images from the png
         source with 90% quality.
-
+- `-o` Name of the output. Can be singular or plural, where plural
+        examples proceed in alphabetical order.
+    - Singular example `imgc -o my-photo source.png webp` produces 
+    ```
+    source.png
+    my-photo.webp # same subject as source.png
+    ```
+    - Plural example `imgc -o my-photo *.png webp` produces
+    ```
+    banana.png
+    apple.png
+    my-photo1.webp # same subject as apple.png
+    my-photo2.webp # same subject as banana.png
+    ```
