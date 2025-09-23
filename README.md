@@ -2,13 +2,13 @@
 A command line tool to quickly convert images in the terminal. 
 
 ## Supported File Formats
-- png
-- jpeg
-- jpg
-- heic
-- heif
-- gif
-- webp
+- .png
+- .jpeg
+- .jpg
+- .heic
+- .heif
+- .gif
+- .webp
 ## Usage
 Example `imgc *.jpg webp` converts all jpg files in the working directory to webp.
 #### **Before**
@@ -47,3 +47,9 @@ project-root/
     my-photo1.webp # same subject as apple.png
     my-photo2.webp # same subject as banana.png
     ```
+## Build From Source
+This project is built using [Cargo for Rust](https://doc.rust-lang.org/cargo/). To build the binaries, run
+```
+$ cargo build
+```
+from the project's root directory.
