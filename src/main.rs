@@ -4,11 +4,12 @@ use clap::{Parser, ValueHint};
 #[command(author, version, about, long_about = None)]
 struct Cli {
     /// Optional output filename flag
-    #[arg(short, long)]
+    #[arg(short, long, value_name = "FILENAME")]
     output: String,
 
     /// Optional quality flag
-    #[arg(short, long, value_parser = clap::value_parser!(i8).range(..=100))]
+    #[arg(short, long, value_name = "PERCENTAGE",
+            value_parser = clap::value_parser!(i8).range(..=100))]
     quality: i8,
 
     /// Optional verbose flag
@@ -25,7 +26,6 @@ struct Cli {
 
 fn main() {
     let cli = Cli::parse();
-
     
     println!("Output name: {}", cli.output);
     println!("Target quality: {}", cli.quality);
