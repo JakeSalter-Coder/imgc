@@ -117,4 +117,10 @@ This project is built using [Cargo for Rust](https://doc.rust-lang.org/cargo/). 
 $ cargo build
 ```
 
-from the project's root directory.
+from the project's root directory.  
+
+This can also be ran directly.
+
+```
+$ cargo run -- [options] [target file(s)] [output file type]
+```
