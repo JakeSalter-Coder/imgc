@@ -12,6 +12,10 @@ struct Cli {
             value_parser = clap::value_parser!(i8).range(..=100))]
     quality: i8,
 
+    /// Optional recursion flag
+    #[arg(short = 'R', long)]
+    recursive: bool,
+
     /// Optional verbose flag
     #[arg(short, long)]
     verbose: bool,
@@ -20,7 +24,7 @@ struct Cli {
     #[arg(value_hint = ValueHint::FilePath, required = true)]
     targets: Vec<String>,
 
-    /// Output file type (positional)
+    /// Output file type
     new: String,
 }
 
