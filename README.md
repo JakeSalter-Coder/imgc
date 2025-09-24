@@ -30,7 +30,7 @@ A simple example:
 imgc *.jpg webp
 ```
 
-This command converts all the jpg files in the working directory to webp, storing the source files in an `imgc-backup/` directory. This is created in the root directory where the command is ran.
+This command converts all the jpg files in the working directory to webp, storing the source files in an `imgc-backup/` directory. This is created in the directory where the command is ran.
 
 #### **Before**
 
@@ -54,7 +54,7 @@ project-root/
 ```
 ## List of Flags
 
-- `-o <FILENAME>` Name of the output. Can be singular or plural, where plural examples convert in alphabetical order. Will not produce the `imgc-backup` directory.
+- `-o <FILENAME>` Name of the output. Can be singular or plural, where plural examples convert in alphabetical order. This option will disable the `imgc-backup` directory.
     - Singular example
     ```
     $ imgc -o my-photo.webp source.png webp
