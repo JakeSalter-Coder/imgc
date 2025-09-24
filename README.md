@@ -18,7 +18,19 @@ While in development, refer to the [Build From Source](#build-from-source) secti
 
 ## Usage
 
-Example `imgc *.jpg webp` converts all jpg files in the working directory to webp.
+Syntax is defined:
+
+```
+imgc [options] [target file(s)] [output file type]
+```
+
+A simple example:
+
+```
+imgc *.jpg webp
+```
+
+This command converts all the jpg files in the working directory to webp, storing the source files in an `imgc-backup/` directory. This is created in the root directory where the command is ran.
 
 #### **Before**
 
@@ -42,7 +54,7 @@ project-root/
 ```
 ## List of Flags
 
-- `-o <filename>` Name of the output. Can be singular or plural, where plural examples convert in alphabetical order. Will not produce the `imgc-backup` directory.
+- `-o <FILENAME>` Name of the output. Can be singular or plural, where plural examples convert in alphabetical order. Will not produce the `imgc-backup` directory.
     - Singular example
     ```
     $ imgc -o my-photo.webp source.png webp
@@ -60,7 +72,7 @@ project-root/
     my-photo2.webp # same subject as banana.png
     ```
 
-- `-q <percentage>` Quality of the conversion, provided as a percentage.
+- `-q <PERCENTAGE>` Quality of the conversion, provided as a percentage.
     - Example `imgc -q 90 *.png jpg` produces jpg images from the png
         source with 90% quality.
 - `-R` Recursive. This will traverse the root directory and apply the given command on all child directories.
@@ -95,7 +107,7 @@ project-root/
         ├ car.webp
     ```
 
-- `-v` Verbose. This will not produce the `imgc-backup` directory, removing the original image. **`-v` with `-R` will remove the original files form all child directories.**
+- `-v` Verbose. This will not produce the `imgc-backup` directory, removing the original image. **Options `-v` with `-R` will remove the original files form all child directories.**
 
 ## Build From Source
 
