@@ -1,7 +1,9 @@
 # imgc
+
 A command line tool to quickly convert images in the terminal. 
 
 ## Supported File Formats
+
 - .png
 - .jpeg
 - .jpg
@@ -9,9 +11,17 @@ A command line tool to quickly convert images in the terminal.
 - .heif
 - .gif
 - .webp
+
+## Installation
+
+While in development, refer to the [Build From Source](#build-from-source) section.
+
 ## Usage
+
 Example `imgc *.jpg webp` converts all jpg files in the working directory to webp.
+
 #### **Before**
+
 ```
 project-root/
 ├ photo1.jpg
@@ -20,6 +30,7 @@ project-root/
 ```
 
 #### **After**
+
 ```
 project-root/
 ├ imgc-backup/
@@ -30,26 +41,68 @@ project-root/
 ├ photo3.JPG
 ```
 ## List of Flags
-- `-q` Quality of the conversion, provided as a percentage.
-    - Example `imgc -q 90 *.png jpg` produces jpg images from the png
-        source with 90% quality.
-- `-o` Name of the output. Can be singular or plural, where plural
-        examples proceed in alphabetical order.
-    - Singular example `imgc -o my-photo source.png webp` produces 
+
+- `-o <filename>` Name of the output. Can be singular or plural, where plural examples convert in alphabetical order. Will not produce the `imgc-backup` directory.
+    - Singular example
     ```
+    $ imgc -o my-photo.webp source.png webp
+
     source.png
     my-photo.webp # same subject as source.png
     ```
-    - Plural example `imgc -o my-photo *.png webp` produces
+    - Plural example
     ```
+    $ imgc -o my-photo.webp *.png webp
+
     banana.png
     apple.png
     my-photo1.webp # same subject as apple.png
     my-photo2.webp # same subject as banana.png
     ```
+
+- `-q <percentage>` Quality of the conversion, provided as a percentage.
+    - Example `imgc -q 90 *.png jpg` produces jpg images from the png
+        source with 90% quality.
+- `-R` Recursive. This will traverse the root directory and apply the given command on all child directories.
+    - Example `imgc -R *.png webp`
+
+    ### **Before**
+    ```
+    project-root/
+    ├ gallery1/
+        ├ cat.png
+        ├ dog.png
+    ├ gallery2/
+        ├ boat.png
+        ├ car.png
+    ```
+
+    ### **After**
+
+    ```
+    project-root/
+    ├ gallery1/
+        ├ imgc-backup/ 
+            ├ cat.png
+            ├ dog.png
+        ├ cat.webp
+        ├ dog.webp
+    ├ gallery2/
+        ├ imgc-backup/ 
+            ├ boat.png
+            ├ car.png
+        ├ boat.webp
+        ├ car.webp
+    ```
+
+- `-v` Verbose. This will not produce the `imgc-backup` directory, removing the original image. **`-v` with `-R` will remove the original files form all child directories.**
+
 ## Build From Source
+
 This project is built using [Cargo for Rust](https://doc.rust-lang.org/cargo/). To build the binaries, run
+
 ```
 $ cargo build
 ```
+
 from the project's root directory.
