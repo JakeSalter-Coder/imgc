@@ -4,12 +4,12 @@ use clap::{Parser, ValueHint};
 #[command(author, version, about, long_about = None)]
 struct Cli {
     /// Optional output filename flag
-    #[arg(short, long, value_name = "FILENAME")]
+    #[arg(short, long, value_name = "FILENAME", default_value_t = String::from("photo.jpg"))]
     output: String,
 
     /// Optional quality flag
     #[arg(short, long, value_name = "PERCENTAGE",
-            value_parser = clap::value_parser!(i8).range(..=100))]
+            value_parser = clap::value_parser!(i8).range(..=100), default_value_t = 100)]
     quality: i8,
 
     /// Optional recursion flag
